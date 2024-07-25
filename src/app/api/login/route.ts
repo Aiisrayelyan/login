@@ -1,4 +1,3 @@
-import { redirect } from 'next/navigation';
 import { handleLogin } from '../../lib/actions';
 import { serialize } from 'cookie';
 

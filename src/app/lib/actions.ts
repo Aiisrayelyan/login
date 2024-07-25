@@ -6,10 +6,8 @@ import bcrypt from "bcrypt"
 import { addUser, getUserByLogin } from "./api"
 import Database from 'better-sqlite3';
 
-// Open the SQLite database
 const db = new Database('./auth.db');
 
-// Refined regular expression for password validation
 const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&+])[A-Za-z\d@$!%*?&+]{6,}$/;
 
 function validateRegistration(login: string, password: string): { valid: boolean, message: string } {
@@ -49,7 +47,6 @@ export const handleSignup = async (prev: unknown, data: FormData) => {
     addUser(user);
 }
 
-// Function to handle login
 export const handleLogin = async (prev: unknown, data: any): Promise<{ message: string, user?: IUser }> => {
     const login = data.login as string;
     const password = data.password as string;
